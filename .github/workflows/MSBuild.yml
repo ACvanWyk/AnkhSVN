@@ -23,8 +23,8 @@ jobs:
     - name: Add MSBuild to PATH
       uses: microsoft/setup-msbuild@v2
 
-    - name: Add Subversion to PATH
-      uses: ampscm/setup-subversion@v1
+    - name: Install SlikSvn
+      run: choco install sliksvn --no-progress -y
 
     - name: Add VSTest to PATH
       run: |
