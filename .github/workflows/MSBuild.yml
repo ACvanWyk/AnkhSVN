@@ -33,12 +33,12 @@ jobs:
       working-directory: build
       run: cmd.exe /C scripts\gh-version-setup ${{ github.run_number }}
 
-    - name: Build 2022
+    - name: Build 2026
       working-directory: ${{env.GITHUB_WORKSPACE}}
-      run: msbuild /m /v:m /restore /t:rebuild /p:UseVsSdkVersion=17.0 /p:Configuration=Release ${{env.SOLUTION_FILE_PATH}} @build\scripts\msbuild-version.rsp
+      run: msbuild /m /v:m /restore /t:rebuild /p:UseVsSdkVersion=18.0 /p:Configuration=Release ${{env.SOLUTION_FILE_PATH}} @build\scripts\msbuild-version.rsp
 
-    - name: Package vsix 2022
+    - name: Package vsix 2026
       uses: actions/upload-artifact@v6
       with:
-        name: Ankh-VSIX-2022
+        name: Ankh-VSIX-2026
         path: build/src/Ankh.Package/bin/release/Ankh.Package.vsix
